@@ -40,6 +40,12 @@ function timeclock(){
 
 
 
+
+
+}
+
+
+
 function playBeep() {
     navigator.notification.beep(3);
 }
@@ -52,12 +58,6 @@ function BnV() {
 	   	navigator.notification.beep(3);
 	   navigator.notification.vibrate(2000);
 }
-
-
-}
-
-
-
 
 $(function(){
 	

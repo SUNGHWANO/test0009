@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/cordova.js"></script>
 <script type="text/javascript" src="js/common_no1.js"></script>
+<script type="text/javascript" src="js/cordova.js"></script>
 <link rel="stylesheet" href="css/layout.css">
 <title>Function Edit</title>
 
@@ -26,6 +26,28 @@
 button { margin-top: 65px; }
 #timerSet { margin-top: 50px; position: absolute; }
 </style>
+
+<script type="text/javascript" charset="utf-8">
+
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+    	navigator.notification.vibrate(2000);
+    	navigator.notification.beep(3);
+    }
+
+   
+    function playBeep() {
+        navigator.notification.beep(3);
+    }
+
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+
+    </script>
+
 </head>
 <body>
 
@@ -53,6 +75,7 @@ button { margin-top: 65px; }
 
 	<button id="confirm">Confirm</button>
 	<button id="cancel">Cancel</button>
+<p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
 <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
 </section>
 
