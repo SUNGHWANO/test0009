@@ -15,23 +15,24 @@
     function onDeviceReady() {
         // Empty
     	navigator.notification.beep(3);
-    	navigator.notification.vibrate(2000);
+    
     }
 
     // process the confirmation dialog result
     function onConfirm(buttonIndex) {
-        alert('You selected button ' + buttonIndex);
+        //alert('You selected button ' + buttonIndex);
     }
 
     // Show a custom confirmation dialog
     //
     function showConfirm() {
         navigator.notification.confirm(
-            'You are the winner!', // message
+            '계속 / 끝', // message
              onConfirm,            // callback to invoke with index of button pressed
-            'Game Over',           // title
-            ['Restart','Exit']         // buttonLabels
+            'TV',           // title
+            ['No','Yes']         // buttonLabels
         );
+        navigator.notification.vibrate(2000);
     }
 
     </script>
