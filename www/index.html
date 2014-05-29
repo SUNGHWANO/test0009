@@ -39,11 +39,21 @@
         navigator.notification.vibrate(2000);
     }
 
+    function confirmNotification() {
+        navigator.notification.confirm(
+              'Which color do you like most?'
+            , confirmCB
+            , 'Title | Confirm'
+            , 'Green,Red'
+        );  
+    }
+    
     </script>
   </head>
   <body>
     <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
     <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
     <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
+    <p><a href="#" onclick="confirmNotification(); return false;">confirmNotification</a></p>
   </body>
 </html>
