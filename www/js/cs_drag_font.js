@@ -126,7 +126,7 @@ function timeclock(){
     end=1;
   }
   
-  /*
+  
   if (second < 10) {
     document.clock.txtSecs.value = 0 + second.toString();
   } else {
@@ -137,7 +137,7 @@ function timeclock(){
     } else {
       document.clock.txtMins.value = minute;
     }
-  */
+  
   
   
   setTimeout("timeclock()", 1000);
@@ -154,7 +154,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function onDeviceReady() {
- 
+	navigator.notification.beep(3);
 }
 
 
