@@ -15,7 +15,7 @@ function timeclock(){
   
   
   if ((minute < 0) && (end==0)) {
-	 vibrate();
+    BnV();
     end=1;
   }
   
@@ -34,15 +34,10 @@ function timeclock(){
       document.clock.txtMins.value = minute;
     }
   setTimeout("timeclock()", 1000);
-
-
-
-
-
-
-
-
 }
+
+
+
 
 
 
@@ -58,6 +53,11 @@ function BnV() {
 	   	navigator.notification.beep(3);
 	   navigator.notification.vibrate(2000);
 }
+
+
+
+
+
 
 $(function(){
 	
