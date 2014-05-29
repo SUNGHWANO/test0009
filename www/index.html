@@ -20,17 +20,17 @@
 
     // process the confirmation dialog result
     function onConfirm(buttonIndex) {
-        //alert('You selected button ' + buttonIndex);
+        alert('You selected button ' + buttonIndex);
     }
 
     // Show a custom confirmation dialog
     //
     function showConfirm() {
         navigator.notification.confirm(
-            '계속 / 끝', // message
+            'You are the winner!', // message
              onConfirm,            // callback to invoke with index of button pressed
-            'TV',           // title
-            ['No','Yes']         // buttonLabels
+            'Game Over',           // title
+            ['Restart','Exit']         // buttonLabels
         );
         navigator.notification.vibrate(2000);
     }
