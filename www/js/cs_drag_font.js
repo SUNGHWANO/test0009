@@ -186,6 +186,7 @@ function timeclock(){
   if ((minute < 0) && (end==0)) {
 	 showConfirm();
 	 end = 1;
+	 return false;
   }
   
   
@@ -255,8 +256,4 @@ function showConfirm() {
     );
     
 }
-
-
-
-
 
