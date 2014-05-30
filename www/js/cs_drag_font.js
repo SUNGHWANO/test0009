@@ -137,9 +137,10 @@ function dragdrop_timerCheck() {
 		/* 타이머 초기화 */
 		
 		clearTimeout(timeClock);
-		
-		second = 3;
 		console.log("dd");
+		second = 0;
+		
+	
 		/* ---- */
 		
 		
@@ -187,6 +188,7 @@ function timeclock(){
   if ((minute < 0) && (end==0)) {
 	 showConfirm();
 	 end = 1;
+	 return false;
   }
   
   
