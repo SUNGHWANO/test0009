@@ -1,36 +1,66 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" id="iphone-viewport" content="minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="spinningwheel.js"></script>
+  
+  
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="spinningwheel.css" type="text/css" media="all" />
+<title>Function Edit</title>
 
-  <link rel="stylesheet" href="spinningwheel.css" type="text/css" media="all" />
-  <script type="text/javascript" src="spinningwheel.js"></script>
 
-  <title>Spinning Wheel for iPhone/iPod touch</title>
+
+<style type="text/css">
+body { text-align:center; font-family:helvetica; }
+#functionEdit { margin-top: 100px; position: relative; text-align: center;}
+#timer { font-size: 200%; margin: 50px 0px; }
+
+#functionEdit button { font-size: 130%; padding: 10px; }
+#confirm { background: #5cb85c; margin-right: 30px; }
+#cancel { background: #d9584f; }
+#time { 
+  position: absolute; margin-top: -25px; margin-left: -50px; padding: 5px;
+  border: 2px solid black; width: 81px; height: 30px; font-size: 200%;
+  
+  }
+.timerCount { border: 0px; margin-top: 30px;}
+button { margin-top: 85px; }
+button { font-size:16px; }
+#result {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 128px;
+  font-size:18px; 
+  }
+</style>
+
 
 <script type="text/javascript">
 
 
+$("#sw-wrapper").css("display", "");
 
 
 function openWeight() {
   
-	
+  
 
-	
-	
+  
+  
   var hours = { };
   
-  for(var i=00;i<=24;i++) {
-	  hours[i] = i;
+  for(var i=0;i<=24;i++) {
+    hours[i] = i;
   }
   
   
   var minute = { };
   
   for(var j=0;j<=60;j++) {
-	  minute[j] = j;
+    minute[j] = j;
   }
   
   
@@ -50,7 +80,7 @@ function openWeight() {
 
 function done() {
   var results = SpinningWheel.getSelectedValues();
-  document.getElementById('result').innerHTML = 'minute: ' + results.values[0] + ", second: " + results.values[1];
+  document.getElementById('result').innerHTML = results.values[0] + " : " + results.values[1];
 }
 
 function cancel() {
@@ -63,22 +93,47 @@ window.addEventListener('load', function(){ setTimeout(function(){ window.scroll
 </script>
 
 
-<style type="text/css">
-body { text-align:center; font-family:helvetica; }
-button { font-size:16px; }
-#result { margin:10px; background:#aaa; -webkit-border-radius:8px; padding:8px; font-size:18px; }
-</style>
 
 </head>
-
-<body onload="openWeight()">
-
-
-<button onclick="openWeight()">weight</button>
+<body>
 
 
 
-<p id="result">results</p>
+<section id="layout">
+
+
+<section id="functionEdit">
+
+	<img id="function" src="css/img/radio.png">
+	
+	<p id="timer">Default Timer</p>
+	<input id="time" value="60:00" readonly></input>
+	
+
+
+ <p id="result" onclick="openWeight()">results</p>
+	<button id="confirm">Confirm</button>
+	<button id="cancel">Cancel</button>
+
+</section>
+
+
+</section>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
