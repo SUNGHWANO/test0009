@@ -3,6 +3,7 @@
 var now = new Date();
 var minute = now.getMinutes().toString();
 var second = now.getSeconds().toString();
+var time;
 minute = 00;
 second = 00;
 end=0;
@@ -36,7 +37,7 @@ $(window).load(function(){
 		
 		/* 타이머 초기화 */
 		
-		clearTimeout(timeClock);
+		clearInterval(time);
 		minute = 00;
 		second = 00;
 		
@@ -133,8 +134,8 @@ function dragdrop_timerCheck() {
 		dragdrop_flip(); // 빙글빙글	
 		
 		/* 타이머 초기화 */
-		
-		clearTimeout(timeClock);
+		console.log("dd");
+		clearInterval(time);
 		$(".timerCount").val("00");
 		minute = 00;
 		second = 00;
@@ -175,38 +176,37 @@ function dragdrop_flip() {
 
 
 function timeclock(){
-  if(second == 00) {
-    minute -= 1 ;
-    second = 3 ;
-  } else{
-    second = second-1;
-  }
-  
-  
-  if ((minute < 0) && (end==0)) {
-	 showConfirm();
-    end=1;
-    $(".timerCount").val("00");
-    minute = 00;
-    second = 00;
-    clearTimeout(timeClock);
-  }
-  
-  
-  if (second < 10) {
-    document.clock.txtSecs.value = 0 + second.toString();
-  } else {
-    document.clock.txtSecs.value = second;
-  }
-  if (minute < 10) {
-      document.clock.txtMins.value = 0 + minute.toString();
-    } else {
-      document.clock.txtMins.value = minute;
-    }
-  
-  
-  
-  timeClock = setTimeout("timeclock()", 1000);
+	
+	time = setInterval(function(){
+		if(second == 00) {
+		    minute -= 1 ;
+		    second = 3 ;
+		  } else{
+		    second = second-1;
+		  }
+		  
+		  
+		  if ((minute < 0) && (end==0)) {
+			 showConfirm();
+		    end=1;
+		    $(".timerCount").val("00");
+		    minute = 0;
+		    second = 0;
+		    clearInterval(time);
+		  }
+		  
+		  
+		  if (second < 10) {
+		    document.clock.txtSecs.value = 0 + second.toString();
+		  } else {
+		    document.clock.txtSecs.value = second;
+		  }
+		  if (minute < 10) {
+		      document.clock.txtMins.value = 0 + minute.toString();
+		    } else {
+		      document.clock.txtMins.value = minute;
+		    }
+	}, 1000);
 }
 
 
