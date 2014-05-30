@@ -7,6 +7,9 @@ minute = 00;
 second = 00;
 end=0;
 
+var a;
+var b;
+
 /* ------- */
 
 
@@ -37,8 +40,7 @@ $(window).load(function(){
 		/* 타이머 초기화 */
 		
 		clearTimeout(timeClock);
-		minute = 00;
-		second = 00;
+		
 		
 		/* ---- */
 		
@@ -77,10 +79,10 @@ function dragdrop_drop() {
 		
 		/* 타이머 */
 		
-		var a = lastIcon.context;
+		 a = lastIcon.context;
 		for(var i=1;i<7;i++) {
 			
-			var b = window.document.getElementsByTagName("i")[i];
+			 b = window.document.getElementsByTagName("i")[i];
 			
 			if(a == b) {
 				
@@ -135,10 +137,9 @@ function dragdrop_timerCheck() {
 		/* 타이머 초기화 */
 		
 		clearTimeout(timeClock);
-		$(".timerCount").val("00");
-		minute = 00;
-		second = 00;
 		
+		second = 3;
+		console.log("dd");
 		/* ---- */
 		
 		
@@ -186,7 +187,6 @@ function timeclock(){
   if ((minute < 0) && (end==0)) {
 	 showConfirm();
 	 end = 1;
-	 return false;
   }
   
   
