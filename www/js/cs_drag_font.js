@@ -135,6 +135,7 @@ function dragdrop_timerCheck() {
 		/* 타이머 초기화 */
 		
 		clearTimeout(timeClock);
+		$(".timerCount").val("00");
 		minute = 00;
 		second = 00;
 		
