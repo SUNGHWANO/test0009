@@ -184,7 +184,7 @@
 			div.id = 'sw-wrapper';
 			div.style.top = (this.container ? this.container.clientHeight : (window.innerHeight + window.pageYOffset)) + 'px';		// Place the SW down the actual viewing screen
 			div.style[transitionProperty] = hasTransform ? cssVendor + 'transform' : 'top left';
-			div.style[transitionDuration] = '400ms';
+			div.style[transitionDuration] = '1ms';
 			if(!hasTransform) {
 				div.style.position = 'absolute';
 			}

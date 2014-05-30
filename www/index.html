@@ -41,7 +41,6 @@ button { font-size:16px; }
 <script type="text/javascript">
 
 
-$("#sw-wrapper").css("display", "");
 
 
 function openWeight() {
@@ -95,7 +94,7 @@ window.addEventListener('load', function(){ setTimeout(function(){ window.scroll
 
 
 </head>
-<body>
+<body onload="openWeight()">
 
 
 
@@ -107,11 +106,11 @@ window.addEventListener('load', function(){ setTimeout(function(){ window.scroll
 	<img id="function" src="css/img/radio.png">
 	
 	<p id="timer">Default Timer</p>
-	<input id="time" value="60:00" readonly></input>
+	<input id="time" value="60:00" onclick="openWeight()" readonly></input>
 	
 
 
- <p id="result" onclick="openWeight()">results</p>
+ <p id="result">results</p>
 	<button id="confirm">Confirm</button>
 	<button id="cancel">Cancel</button>
 
