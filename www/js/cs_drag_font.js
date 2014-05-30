@@ -185,7 +185,7 @@ function timeclock(){
   if ((minute < 0) && (end==0)) {
 	 showConfirm();
     end=1;
-    
+    return;
   }
   
   
@@ -216,8 +216,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function onDeviceReady() {
-	navigator.notification.beep(3);
-	navigator.notification.vibrate(2000);
+	
 }
 
 
