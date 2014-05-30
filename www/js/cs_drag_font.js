@@ -35,10 +35,10 @@ $(window).load(function(){
 		dragdrop_timerCheck();	
 		
 		/* 타이머 초기화 */
-		
+	
 		clearTimeout(timeClock);
-		minute = 0;
-		second = 0;
+		minute = 00;
+		second = 00;
 		
 		/* ---- */
 		
@@ -135,8 +135,8 @@ function dragdrop_timerCheck() {
 		/* 타이머 초기화 */
 		
 		clearTimeout(timeClock);
-		minute = 0;
-		second = 0;
+		minute = 00;
+		second = 00;
 		
 		/* ---- */
 		
@@ -185,6 +185,8 @@ function timeclock(){
   if ((minute < 0) && (end==0)) {
 	 showConfirm();
     end=1;
+     minute = 00;
+     second = 00;
     return;
   }
   
