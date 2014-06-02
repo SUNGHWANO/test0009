@@ -248,6 +248,7 @@ function onConfirm(buttonIndex) {
     if(buttonIndex == 1) {
     	minute = c;
     	end = 0;
+    	clearTimeout(timeClock);
       timeclock();
     } else {
     	window.location.reload();
