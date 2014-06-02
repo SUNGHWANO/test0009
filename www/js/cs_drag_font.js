@@ -247,6 +247,8 @@ function BnV() {
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1) {
     	minute = c;
+    	end = 0;
+      timeclock();
     } else {
     	window.location.reload();
     }
