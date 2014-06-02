@@ -248,7 +248,6 @@ function onConfirm(buttonIndex) {
 			if(a == b) {
 			minute = a.getElementsByTagName("input")[0].value;
 		   end = 0;
-			timeclock();
 			}
 		}
     } else {
