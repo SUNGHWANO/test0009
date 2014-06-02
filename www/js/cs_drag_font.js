@@ -7,9 +7,9 @@ minute = 00;
 second = 00;
 end=0;
 
-var a;
-var b;
-var c;
+var dragIcon;
+var icons;
+var defaultTime;
 /* ------- */
 
 
@@ -79,16 +79,16 @@ function dragdrop_drop() {
 		
 		/* 타이머 */
 		
-		 a = lastIcon.context;
+		dragIcon = lastIcon.context;
 		 
 		for(var i=1;i<7;i++) {
 			
-			 b = window.document.getElementsByTagName("i")[i];
+			icons = window.document.getElementsByTagName("i")[i];
 			
-			if(a == b) {
+			if(dragIcon == icons) {
 				
-			c = a.getElementsByTagName("input")[0].value;
-			minute = c;
+			defaultTime = dragIcon.getElementsByTagName("input")[0].value;
+			minute = defaultTime;
 			
 		   end = 0;
 			timeclock();	
@@ -247,7 +247,7 @@ function BnV() {
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1) {
     	second = 0;
-    	minute = c;
+    	minute = defaultTime;
     	end = 0;    	
     	clearTimeout(timeClock);
       timeclock();
