@@ -2,149 +2,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="spinningwheel.js"></script>
-  
-  
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="spinningwheel.css" type="text/css" media="all" />
-<title>Function Edit</title>
+<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch.js"></script>
+<script type="text/javascript" src="js/timer.js"></script>
+<script type="text/javascript" src="js/cs_drag_font.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
-
-
-<style type="text/css">
-body { text-align:center; font-family:helvetica;}
-#functionEdit { 
-  margin-top: 100px; position: relative; text-align: center; background-color: white; z-index: 1;
-  height: 183px;
-}
-#timer { font-size: 200%; margin: 50px 0px; }
-
-#functionEdit button { font-size: 130%; padding: 10px; }
-#confirm { background: #5cb85c;}
-#cancel { background: #d9584f;}
-#time { 
-  position: absolute; margin-top: -25px; margin-left: 110px; padding: 5px;
-  border: 2px solid black; width: 99px; height: 35px; font-size: 200%;
-  
-  }
-.timerCount { border: 0px; margin-top: 30px;}
-
-#result {
-  position: absolute;
-  margin-top: 10px;
-  margin-left: 128px;
-  font-size:18px; 
-  }
-#button {
-  position: absolute;
-  margin-top: 24px; 
-  font-size:16px; z-index: 1;
-  width: 318px;
-  height: 202px;
-  background-color: white;
-}
-
-</style>
-
-
-<script type="text/javascript">
-
-
-
-function openWeight() {
-  
-	
-  
-  var hours = { };
-  
-  for(var i=0;i<=24;i++) {
-    hours[i] = i;
-  }
-  
-  
-  var minute = { };
-  
-  for(var j=0;j<=60;j++) {
-    minute[j] = j;
-  }
-  
-  
-  SpinningWheel.addSlot(hours, 'right');
-  SpinningWheel.addSlot(minute, 'left');
-  
-  
-  SpinningWheel.setCancelAction(cancel);
-  SpinningWheel.setDoneAction(done);
-  
-  SpinningWheel.open();
-}
-
-
-
-
-
-function done() {
-  var results = SpinningWheel.getSelectedValues();
-  document.getElementById('time').innerHTML = results.values[0] + " : " + results.values[1];
-}
-
-function cancel() {
-  document.getElementById('time').innerHTML = 'cancelled!';
-}
-
-
-window.addEventListener('load', function(){ setTimeout(function(){ window.scrollTo(0,0); }, 100); }, true);
-
-</script>
-
-
+<link rel="stylesheet" href="font/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/lineconStyle.css">
+<link rel="stylesheet" href="css/layout_font.css">
+<link rel="stylesheet" href="css/common_font.css">
+<link rel="stylesheet" href="css/jquery-ui.css">
+<title>Main</title>
 
 </head>
-<body onload="openWeight()">
-
-
+<body>
 
 <section id="layout">
-
-
-<section id="functionEdit">
-
-	<img id="function" src="css/img/radio.png">
-	
-	<p id="timer">Default Timer</p>
-	<div id="time" onclick="openWeight()"></div>
-	
-
-
-<div id="button">
-	<button id="confirm">Confirm</button>
-	<button id="cancel">Cancel</button>
-</div>
-
-  <div id="cover"></div>
-
-
+	<section id="iconMainDiv">
+		<div id="start"><i class="fa fa-play"></i></div>
+		
+		<div id="middle"><!-- <i class="li li_tv"></i> 아이콘이 여기로 --></div>
+		
+	  <div id="one" class="drag iconMain center top"><i class="li li_tv"><input class="icons" value="1"></i></div>
+	  <div id="two" class="drag iconMain left top"><i class="fa fa-cutlery"><input class="icons" value="2"></i></div>
+	  <div id="three" class="drag iconMain right top"><i class="fa fa-desktop"><input class="icons" value="3"></i></div>
+	  <div id="four" class="drag iconMain left bottom"><i class="fa fa-moon-o"><input class="icons" value="4"></i></div>
+	  <div id="five" class="drag iconMain right bottom"><i class="fa fa-mobile"><input class="icons" value="5"></i></div>
+	  <div id="six" class="drag iconMain center bottom"><i class="fa fa-coffee"><input class="icons" value="6"></i></div>
+	  
+	  <p id="timer"></p>
+	</section>
 </section>
 
+<p id="result"></p>
 
-</section>	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<form id="form" name=clock>
+<input class="timerCount Min" name="txtMins" size="1" readonly>
+<input class="timerCount Sec" name="txtSecs" size="1" readonly>
+</form>
 
 </body>
 </html>
