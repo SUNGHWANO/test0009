@@ -87,7 +87,6 @@ function dragdrop_drop() {
 			if(a == b) {
 				
 			minute = a.getElementsByTagName("input")[0].value;
-			
 		   end = 0;
 			timeclock();	
 			
@@ -244,9 +243,14 @@ function BnV() {
 //process the confirmation dialog result
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1) {
-
+    	for(var i=1;i<7;i++) {
+			 b = window.document.getElementsByTagName("i")[i];
+			if(a == b) {
 			minute = a.getElementsByTagName("input")[0].value;
-
+		   end = 0;
+			timeclock();
+			}
+		}
     } else {
     	window.location.reload();
     }
