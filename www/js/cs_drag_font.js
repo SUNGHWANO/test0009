@@ -87,6 +87,7 @@ function dragdrop_drop() {
 			if(a == b) {
 				
 			minute = a.getElementsByTagName("input")[0].value;
+			
 		   end = 0;
 			timeclock();	
 			
@@ -218,7 +219,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function onDeviceReady() {
-	navigator.notification.beep(3);
+	
 }
 
 
@@ -243,7 +244,9 @@ function BnV() {
 //process the confirmation dialog result
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1) {
-    	
+
+			minute = a.getElementsByTagName("input")[0].value;
+
     } else {
     	window.location.reload();
     }
