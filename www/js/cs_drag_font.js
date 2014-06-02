@@ -246,8 +246,9 @@ function BnV() {
 //process the confirmation dialog result
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1) {
+    	second = 0;
     	minute = c;
-    	end = 0;
+    	end = 0;    	
     	clearTimeout(timeClock);
       timeclock();
     } else {
