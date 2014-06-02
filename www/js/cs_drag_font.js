@@ -218,7 +218,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function onDeviceReady() {
-	
+	navigator.notification.beep(3);
 }
 
 
@@ -242,7 +242,9 @@ function BnV() {
 
 //process the confirmation dialog result
 function onConfirm(buttonIndex) {
-    alert('You selected button ' + buttonIndex);
+    if(buttonIndex == 1) {
+    	
+    }
 }
 
 // Show a custom confirmation dialog
@@ -250,10 +252,10 @@ function onConfirm(buttonIndex) {
 function showConfirm() {
 	 navigator.notification.vibrate(2000);
     navigator.notification.confirm(
-        'You are the winner!', // message
-         onConfirm,            // callback to invoke with index of button pressed
-        'Game Over',           // title
-        ['Restart','Exit']         // buttonLabels
+        '알림을 종료할까요?', // message
+         //onConfirm,            // callback to invoke with index of button pressed
+          '알림',           // title
+        ['계속','중지']         // buttonLabels
     );
     
 }
