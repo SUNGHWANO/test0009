@@ -260,6 +260,7 @@ function onConfirm(buttonIndex) {
 //
 function showConfirm() {
 	 navigator.notification.vibrate(1000);
+	 navigator.notification.beep(1);
     navigator.notification.confirm(
         '알림을 종료할까요?', // message
          onConfirm,            // callback to invoke with index of button pressed
