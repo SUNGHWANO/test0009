@@ -244,6 +244,8 @@ function BnV() {
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1) {
     	
+    } else {
+    	window.location.reload();
     }
 }
 
@@ -253,7 +255,7 @@ function showConfirm() {
 	 navigator.notification.vibrate(2000);
     navigator.notification.confirm(
         '알림을 종료할까요?', // message
-         //onConfirm,            // callback to invoke with index of button pressed
+         onConfirm,            // callback to invoke with index of button pressed
           '알림',           // title
         ['계속','중지']         // buttonLabels
     );
