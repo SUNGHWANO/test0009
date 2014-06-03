@@ -5,3 +5,7 @@
 .ui-timepicker-div td { font-size: 90%; }
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 #ui-datepicker-div { font-size: 12px; } 
+.ui-datepicker-calendar { display: none; }
+.ui-datepicker-prev ui-corner-all { display: none; }
+.ui-datepicker-title { display: none; }
+.ui-icon ui-icon-circle-triangle-w { display: none; }
