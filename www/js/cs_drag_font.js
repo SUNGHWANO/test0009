@@ -189,7 +189,9 @@ function timeclock(){
   
   
   if ((minute < 0) && (end==0)) {
-	 showConfirm();
+	  navigator.notification.vibrate(1000);
+	  showConfirm();
+	  navigator.notification.beep(1);
 	 end = 1;
   }
   
@@ -259,7 +261,6 @@ function onConfirm(buttonIndex) {
 // Show a custom confirmation dialog
 //
 function showConfirm() {
-	 navigator.notification.vibrate(1000);
     navigator.notification.confirm(
         '알림을 종료할까요?', // message
          onConfirm,            // callback to invoke with index of button pressed
