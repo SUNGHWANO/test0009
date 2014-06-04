@@ -189,6 +189,7 @@ function timeclock(){
   
   
   if ((minute < 0) && (end==0)) {
+	  BnV();
 	 showConfirm();
 	 end = 1;
   }
@@ -239,8 +240,8 @@ function vibrate() {
 }
 
 function BnV() {
-	 navigator.notification.beep(3);
-    navigator.notification.vibrate(2000);
+	 navigator.notification.beep(1);
+    navigator.notification.vibrate(1000);
 }
 
 //process the confirmation dialog result
@@ -259,9 +260,7 @@ function onConfirm(buttonIndex) {
 // Show a custom confirmation dialog
 //
 function showConfirm() {
-	 navigator.notification.vibrate(1000);
     navigator.notification.confirm(
-    	navigator.notification.beep(1),
         '알림을 종료할까요?', // message
          onConfirm,            // callback to invoke with index of button pressed
           '알림',           // title
