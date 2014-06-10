@@ -6,6 +6,9 @@
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="spinningwheel.js"></script>
   
+<link rel="stylesheet" href="font/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/lineconStyle.css">
+<link rel="stylesheet" href="css/common_font.css">  
   
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="spinningwheel.css" type="text/css" media="all" />
@@ -101,15 +104,18 @@ body { text-align:center; font-family:helvetica;}
  padding-top: 2px;
  box-shadow:none;
 }
+.fa, .li{  
+  display: block; width: 70px; height: 70px; line-height: 70px; font-size: 2.8em;
+  border-radius: 35px; -webkit-border-radius: 35px; -moz-border-radius: 35px;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15); border: 0px; 
+  color: white; text-align: center; 
+}
+.icons { display: none; }
+#iconSet { margin-left: 125px; }
 </style>
 <script type="text/javascript">
         $(function () {	   
-           
-        
-    
-        	
-        	var defaultTime = $(".timepicker").val();
-        	console.log(defaultTime);
+       
         	
             var curr = new Date().getFullYear();
             var opt = {
@@ -135,8 +141,81 @@ body { text-align:center; font-family:helvetica;}
                 $('.demo').hide();
                 $('.demo-' + demo).show();
             });
-            $('#demo').trigger('change');                 
+            $('#demo').trigger('change');
+               
         });
+        
+        
+        
+          // db --------------------------
+          
+          
+        var iconName, defaultTime;
+	     var db = window.openDatabase("Database", "1.0", "LogDB", 2 * 1024 * 1024);
+	    
+	    
+	    
+	    db_defaultTime();
+
+	   	    
+	    
+	    function db_defaultTime(){
+	    	db.transaction(function(tx) {
+	    		tx.executeSql("select * from ICONTIME", [], function(tx, res) {
+	    			var len = res.rows.length;
+	    			console.log(len);
+	    			console.log(res.rows.item(len-1).TITLE);
+	    			console.log(res.rows.item(len-1).DEFAULT_TIME);
+	    			
+	    			
+	    			$("#iconSet").append(res.rows.item(len-1).TITLE);
+
+	    			
+	    		  var dTime = res.rows.item(len-1).DEFAULT_TIME;
+	    		  var hTime = dTime / 60;
+	        var mTime = dTime % 60;
+	        var hsTime = Math.floor(hTime);
+	        
+	    		  if(dTime < 60) {
+	    			  
+	    		   $("#test").attr("placeholder", "00:" + dTime);	  
+	    		   
+	    		  } else if(mTime != "0") {
+	    			     				 
+	    			  $("#test").attr("placeholder", hsTime + ":" + mTime);
+	 	  
+	    		  } else {
+	    			  
+	    			  $("#test").attr("placeholder", hTime + ":00");
+	    			
+	    		  }
+	    		  
+	    			$("#test").attr("value", dTime);
+	    		  
+	    		 $("#confirm").click(function(){
+	    			 var bTime = $("#test").val();
+	    			 if(bTime != "" && bTime != "00:00") {	    				 
+	    			 console.log(bTime);
+	    			 }
+	    		 });
+	    			
+	    			
+	    		});
+	    	}, db_errorCB);
+	    };
+
+	    function db_errorCB(e) { // query 에러시 호출
+	    	console.log("e :" + e);
+	    	console.log("e.code : "+e.code);
+	    	console.log("e.message :" + e.message);
+	    }
+
+	    function db_digitText(i) {
+	    	if (i < 10) {
+	    		i = '0' + i;
+	    	}
+	    	return i;
+	    }
 </script>
 
 
@@ -152,7 +231,9 @@ body { text-align:center; font-family:helvetica;}
 
 
 <section id="functionEdit">
-	<img id="function" src="css/img/radio.png">
+<div id="iconSet">
+  
+</div>
 	<p id="timer">Default Timer</p>
 	
 
@@ -197,9 +278,9 @@ body { text-align:center; font-family:helvetica;}
                 </div>
             </div>
                 <input name="test" 
-                id="test" 
+                id="test" name="test"
                 class="demo-test-date demo-test-datetime demo-test-time demo-test-credit"
-                placeholder="알림예약"/>      
+                     />      
 </div>
 	
 	
