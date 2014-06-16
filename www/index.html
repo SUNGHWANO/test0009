@@ -2,87 +2,66 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+</head>
 <style>
-#chartdiv {
-  width : 100%;
-  height  : 500px;
-}   
+#chartdiv {#chartdiv {
+  width   : 100%;
+  height    : 500px;
+  font-size : 11px;
+}     
+  width   : 100%;
+  height    : 500px;
+  font-size : 11px;
+}     
+  width   : 100%;
+  height    : 500px;
+  font-size : 11px;
+} 
 </style>
 
 <script>
-AmCharts.makeChart("chartdiv",
-		{
-		    "type": "serial",
-		  "theme": "none",
-		    "dataProvider": [{
-		        "name": "John",
-		        "points": 35654,
-		        "color": "#7F8DA9",
-		         "bullet": "http://www.amcharts.com/lib/3/images/0.gif"
-		    }, {
-		        "name": "Damon",
-		        "points": 65456,
-		        "color": "#FEC514",
-		        "bullet": "http://www.amcharts.com//lib/3/images/1.gif"
-		    }, {
-		        "name": "Patrick",
-		        "points": 45724,
-		        "color": "#DB4C3C",
-		        "bullet": "http://www.amcharts.com//lib/3/images/2.gif"
-		    }, {
-		        "name": "Mark",
-		        "points": 13654,
-		        "color": "#DAF0FD",
-		        "bullet": "http://www.amcharts.com//lib/3/images/3.gif"
-		    }],
-		    "valueAxes": [{
-		        "maximum": 80000,
-		        "minimum": 0,
-		        "axisAlpha": 0,
-		        "dashLength": 4,
-		        "position": "left"
-		    }],
-		    "startDuration": 1,
-		    "graphs": [{
-		        "balloonText": "<span style='font-size:13px;'>[[category]]: <b>[[value]]</b></span>",
-		        "bulletOffset": 16,
-		        "bulletSize": 34,
-		        "colorField": "color",
-		        "cornerRadiusTop": 8,
-		        "customBulletField": "bullet",
-		        "fillAlphas": 0.8,
-		        "lineAlpha": 0,
-		        "type": "column",
-		        "valueField": "points"
-		    }],
-		    "marginTop": 0,
-		    "marginRight": 0,
-		    "marginLeft": 0,
-		    "marginBottom": 0,
-		    "autoMargins": false,
-		    "categoryField": "name",
-		    "categoryAxis": {
-		        "axisAlpha": 0,
-		        "gridAlpha": 0,
-		        "inside": true,
-		        "tickLength": 0
-		    },
-		  "exportConfig":{
-		      "menuTop":"0px",
-		      "menuRight":"0px",
-		      "menuItems": [{
-		      "icon": 'http://www.amcharts.com//lib/3/images/export.png',
-		      "format": 'png'   
-		      }]  
-		    }
-		});
+var chart = AmCharts.makeChart("chartdiv", {
+    "type": "pie",
+    "theme": "light",
+    "dataProvider": [{
+        "country": "Lithuania",
+        "value": 260
+    }, {
+        "country": "Ireland",
+        "value": 201
+    }, {
+        "country": "Germany",
+        "value": 65
+    }, {
+        "country": "Australia",
+        "value": 39
+    }, {
+        "country": "UK",
+        "value": 19
+    }, {
+        "country": "Latvia",
+        "value": 10
+    }],
+    "valueField": "value",
+    "titleField": "country",
+    "outlineAlpha": 0.4,
+    "depth3D": 15,
+    "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+    "angle": 30,
+    "exportConfig":{  
+      menuItems: [{
+      icon: '/lib/3/images/export.png',
+      format: 'png'   
+      }]  
+  }
+});
 </script>
-</head>
+
 <body>
-<div id="chartdiv"></div>     
+<div id="chartdiv"></div> 
 </body>
 </html>
