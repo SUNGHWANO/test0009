@@ -1,24 +1,67 @@
-<!DOCTYPE html> 
-<html> 
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"> 
-  <title>jQuery Mobile Docs - Transitions</title> 
-  
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
-</head> 
-<body> 
-
-<div data-role="page">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+<!-- <script type="text/javascript" src="cordova.js"></script> -->
+<script type="text/javascript" src="js/jquery.mobile-1.0a4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
 
 
-    
-    <a href="transition-success.html" data-transition="pop">pop</a>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch.js"></script>
+<script type="text/javascript" src="js/timer.js"></script>
+<script type="text/javascript" src="js/loadSelectedIcon.js"></script>
+<script type="text/javascript" src="js/cs_drag_sql.js"></script>
 
-    
 
-</div>
+<link rel="stylesheet"  href="css/jquery.mobile-1.0a4.1.min.css" />  
 
+<link rel="stylesheet" href="font/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/lineconStyle.css">
+<link rel="stylesheet" href="css/layout_font.css">
+<link rel="stylesheet" href="css/common_font.css">
+
+<title>Main</title>
+</head>
+<body>
+<div class="header" data-role="header"><p>MAIN PAGE</p></div>
+<section id="layout">
+	<section id="iconMainDiv">
+		<div id="start"><i class="fa fa-play"></i></div>
+		
+		<div id="middle"><!-- <i class="li li_tv"></i> 아이콘이 여기로 --></div>
+		<div data-role="page">
+		<div id="one" class="drag iconMain left top" data-transition="pop"></div>
+		<div id="two" class="drag iconMain center top" data-transition="pop"></div>
+		<div id="three" class="drag iconMain right top" data-transition="pop"></div>
+		<div id="four" class="drag iconMain left bottom" data-transition="pop"></div>
+		<div id="five" class="drag iconMain center bottom" data-transition="pop"></div>
+		<div id="six" class="drag iconMain right bottom" data-transition="pop"></div>
+	  </div>
+		<p id="timer"></p>
+		
+	</section>
+	<a class="resultLink" href="main_Setting_sql.html"><i class="fa fa-cog"></i></a>
+	<a id="resultLink" href="result_text_sql.html"><i  class="fa fa-list-ul"></i></a>
+</section>
+
+<p id="result"></p>
+
+<form id="form" name=clock>
+<input class="timerCount Min" name="txtMins" size="1" readonly>
+<input class="timerCount Sec" name="txtSecs" size="1" readonly>
+</form>
+
+
+<script type="text/javascript">
+var db = window.openDatabase("Database", "1.0", "LogDB", 2 * 1024 * 1024);
+
+db.transaction(function(tx) {
+	//tx.executeSql('drop table if exists ICONSTIME'); // DB 삭제 - 테스트 용
+});
+</script>
 </body>
 </html>
