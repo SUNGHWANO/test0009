@@ -6,6 +6,8 @@ import org.apache.cordova.Notification;
 import android.support.v4.app.NotificationCompat;
 
 public class finish {
+	
+	public static boolean appRunned = false;
 	private WebView mAppView;
 	private DroidGap mGap;
 	//private MainActivity ma;
@@ -17,6 +19,12 @@ public class finish {
 	
 	@android.webkit.JavascriptInterface
 	public void notif() {
+		
+		appRunned == true;
+		
+		if(appRunned == true) {
+			
+		
 		NotificationManager notimng = (NotificationManager)mGap.getSystemService(mGap.NOTIFICATION_SERVICE);
     PendingIntent pIntent = PendingIntent.getActivity(mGap, 0, 
     		new Intent(mGap,MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
@@ -41,6 +49,9 @@ public class finish {
     Vibrator vibe = (Vibrator)mGap.getSystemService(mGap.VIBRATOR_SERVICE);         
     vibe.vibrate(1000);
     
+    appRunned == false;
+		}
+		
 	}
 
 }
