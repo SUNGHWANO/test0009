@@ -25,8 +25,8 @@ $(document).ready(function(){
 	startIcon = $('#start').html();
 
 	$(".header").click(function(){
-		window.finish.notif();
 		showConfirm();
+		window.finish.notif();
 	});
 	
 	loadMainIcon();
