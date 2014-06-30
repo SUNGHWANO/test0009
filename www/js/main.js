@@ -291,7 +291,7 @@ function timeclock(){
   
   
   if ((minute < 0) && (end==0)) {
-	 window.finish.notif();
+	 //window.finish.notif();
 	 showConfirm();
 	 end = 1;
   }
