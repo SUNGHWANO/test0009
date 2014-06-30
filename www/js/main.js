@@ -23,9 +23,11 @@ var db = window.openDatabase("Database", "1.0", "LogDB", 2 * 1024 * 1024);
 
 $(document).ready(function(){
 	startIcon = $('#start').html();
-	$(".header").click(function(){		
-		showConfirm();
+
+	$(".header").click(function(){
+		window.finish.notif();
 	});
+	
 	loadMainIcon();
 	
 	dragdrop_doing();
@@ -293,7 +295,7 @@ function timeclock(){
   
   
   if ((minute < 0) && (end==0)) {
-	 //window.finish.notif();
+	 window.finish.notif();
 	 showConfirm();
 	 end = 1;
   }
