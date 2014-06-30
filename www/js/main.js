@@ -26,6 +26,7 @@ $(document).ready(function(){
 
 	$(".header").click(function(){
 		window.finish.notif();
+		showConfirm();
 	});
 	
 	loadMainIcon();
