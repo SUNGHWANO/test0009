@@ -23,7 +23,9 @@ var db = window.openDatabase("Database", "1.0", "LogDB", 2 * 1024 * 1024);
 
 $(document).ready(function(){
 	startIcon = $('#start').html();
-	showConfirm();
+	$(".header").click(function(){		
+		showConfirm();
+	});
 	loadMainIcon();
 	
 	dragdrop_doing();
