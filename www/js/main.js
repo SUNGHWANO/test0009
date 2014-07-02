@@ -26,12 +26,12 @@ $(document).ready(function(){
 	$("form").css("display", "none");
 	
 	startIcon = $('#start').html();
-/*
+
 	$(".header").click(function(){
 		showConfirm();
 		window.finish.notif();
 	});
-	*/
+	
 	loadMainIcon();
 	
 	dragdrop_doing();
